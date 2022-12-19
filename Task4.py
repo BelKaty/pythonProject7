@@ -57,7 +57,7 @@ class WorkCar(Car):
         print(f'Текущая скорость машины "{self.name}" - {self.speed}')
 
         if self.speed > 110:
-            return f'Скорость машины "{self.name}" превышает разрешенную вна магистрале'
+            return f'Скорость машины "{self.name}" превышает разрешенную на магистрале'
         elif 110 >= self.speed > 90:
             return f'Скорость машины "{self.name}" превышает разрешенную на загородной трассе, но разрешена на магистрале'
         elif 90 >= self.speed > 60:
@@ -84,7 +84,7 @@ print(f'Когда {ford.turn_right()}, потом {ferrari.stop()}')
 print(f'{toyota.go()} едет со скоростью {toyota.show_speed()}.')
 print(f'{toyota.name} имеет цвет {toyota.color}')
 print(f'{ferrari.name} полицейская машина? {ferrari.is_police}')
-print(f'{uaz.name} - полицейская машина {ford.is_police}')
+print(f'{uaz.name} - полицейская машина {uaz.is_police}')
 print(ferrari.show_speed())
 print(toyota.show_speed())
 print(uaz.police())
