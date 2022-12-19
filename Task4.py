@@ -56,14 +56,12 @@ class WorkCar(Car):
     def show_speed(self):
         print(f'Текущая скорость машины "{self.name}" - {self.speed}')
 
-        if self.speed > 110:
-            return f'Скорость машины "{self.name}" превышает разрешенную на магистрале'
-        elif 110 >= self.speed > 90:
-            return f'Скорость машины "{self.name}" превышает разрешенную на загородной трассе, но разрешена на магистрале'
-        elif 90 >= self.speed > 60:
-            return f'Скорость машины "{self.name}" превышает разрешенную в городском режиме, но разрешена на загородной трассе и магистрале'
-        elif 60 >= self.speed:    
-             return f'Скорость машины "{self.name}" разрешена в городском режиме, на загородной трассе и магистрале, если нет других ограничений'
+        if self.speed > 90:
+            return f'Скорость машины "{self.name}" превышает разрешенную за городом'
+        else:
+            return f'Скорость машины "{self.name}" допустима'
+
+
 
 class PoliceCar(Car):
     def __init__(self, speed, color, name, is_police):
@@ -75,16 +73,16 @@ class PoliceCar(Car):
         else:
             return f'Эта машина "{self.name}" - ППС'
 
-ferrari = SportCar(110, 'Красная', 'Ferrari', False)
-toyota = TownCar(40, 'Серая', 'Toyota', False)
-ford = WorkCar(90, 'Белая', 'Ford', True)
-uaz = PoliceCar(110, 'Серебристая', 'UAZ', True)
+ferrari = SportCar(220, 'Красный', 'Ferrari', False)
+toyota = TownCar(40, 'Серый', 'Toyota', False)
+ford = WorkCar(100, 'Белый', 'Ford', True)
+uaz = PoliceCar(110, 'Серебристый', 'UAZ', True)
 print(toyota.turn_left())
-print(f'Когда {ford.turn_right()}, потом {ferrari.stop()}')
-print(f'{toyota.go()} едет со скоростью {toyota.show_speed()}.')
+print(f'Когда {ford.turn_right()}, {ferrari.stop()}')
 print(f'{toyota.name} имеет цвет {toyota.color}')
 print(f'{ferrari.name} полицейская машина? {ferrari.is_police}')
 print(f'{uaz.name} - полицейская машина {uaz.is_police}')
+print(ford.show_speed())
 print(ferrari.show_speed())
 print(toyota.show_speed())
 print(uaz.police())
